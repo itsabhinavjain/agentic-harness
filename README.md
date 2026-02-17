@@ -143,10 +143,12 @@ This flows through:
 # Enter container as agent user
 ./scripts/02_docker_shell.sh
 
-# Note : in the first run make sure that you are adding credentials for
-# - Claude Code
-# - Gemini
-# We are using API keys for others
+# Note : in the first run make sure that you are configuring the various tools
+# - Tools
+# 	- Claude Code : Authenticate 
+#   - Gemini      : Authenticate 
+#   - (Others)
+# - We are using API keys for others
 
 # Stop container
 ./scripts/03_docker_stop.sh

@@ -1,0 +1,51 @@
+services:
+  agent:
+    build:
+      context: ./services/agent_machine
+      dockerfile: Dockerfile
+      args:
+        AGENT_USER: ${AGENT_USER:-dev}
+    image: regisedge/regisedge-agent-harness:dev
+    container_name: agent_machine
+    hostname: agent_machine
+
+    # Interactive mode with TTY
+    stdin_open: true
+    tty: true
+
+    environment:
+      AGENT_USER: ${AGENT_USER:-dev}
+      LOCAL_UID: ${LOCAL_UID:-1000}
+      LOCAL_GID: ${LOCAL_GID:-1000}
+      TERM: xterm-256color
+      COLORTERM: truecolor
+      CLAUDE_CONFIG_DIR: /home/${AGENT_USER:-dev}/.claude
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      # Persisted home directory — tool configs, caches, dotfiles
+      - ./volumes/agent_machine/home:/home/${AGENT_USER:-dev}
+
+      # Workspace — your working directory (checked into git)
+      - ./workspace:/home/${AGENT_USER:-dev}/workspace
+
+      # Secrets remain separate (read-only)
+      - ./.secrets:/home/${AGENT_USER:-dev}/.secrets:ro
+
+    # Working directory inside container
+    working_dir: /home/${AGENT_USER:-dev}/workspace
+
+    # Default command
+    command: /bin/bash
+
+    # Health check - verifies entrypoint setup is complete
+    healthcheck:
+      test: ["CMD", "test", "-f", "/tmp/.entrypoint-complete"]
+      interval: 5s
+      timeout: 3s
+      retries: 60
+      start_period: 10s
+
+    restart: unless-stopped

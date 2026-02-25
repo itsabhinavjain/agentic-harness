@@ -27,8 +27,8 @@
 ├── admin_scripts/
 │   ├── 01_docker_start.sh         # Build & start container, poll health
 │   ├── 02_docker_shell.sh         # Attach interactive shell as agent user
-│   ├── 03_docker_stop.sh          # Stop container
-│   └── 04_docker_reset.sh         # Full reset (with confirmation)
+│   ├── 04_docker_stop.sh          # Stop container
+│   └── 05_docker_reset.sh         # Full reset (with confirmation)
 │
 ├── workspace/                     # Working directory inside container (checked into git)
 │   ├── README.md
@@ -159,16 +159,12 @@ This flows through:
 # Enter container as agent user
 ./admin_scripts/02_docker_shell.sh
 
-# Note : in the first run make sure that you are configuring the various tools
-# - Tools
-# 	- Claude Code : Authenticate 
-#   - Gemini      : Authenticate 
-#   - (Others)
-# - We are using API keys for others
+# Enter container as agent user and do initial configurations
+./admin_scripts/03_docker_configure.sh
 
 # Stop container
-./admin_scripts/03_docker_stop.sh
+./admin_scripts/04_docker_stop.sh
 
 # Full reset (prompts for confirmation)
-./admin_scripts/04_docker_reset.sh
+./admin_scripts/05_docker_reset.sh
 ```

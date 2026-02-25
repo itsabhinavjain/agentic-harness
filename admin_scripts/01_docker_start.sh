@@ -81,7 +81,7 @@ while [ $ELAPSED -lt $MAX_WAIT ]; do
             echo -e "${GREEN}  Container is ready!${NC}"
             echo -e "${GREEN}===============================================${NC}"
             echo ""
-            echo -e "${YELLOW}Run ${GREEN}./scripts/02_docker_shell.sh${YELLOW} to enter the container${NC}"
+            echo -e "${YELLOW}Run ${GREEN}./admin_scripts/02_docker_shell.sh${YELLOW} to enter the container${NC}"
             exit 0
             ;;
         unhealthy)

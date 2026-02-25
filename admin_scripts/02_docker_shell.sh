@@ -25,7 +25,7 @@ AGENT_USER="${AGENT_USER:-dev}"
 # Check if container is running
 if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
     echo -e "${RED}Container '$CONTAINER_NAME' is not running!${NC}"
-    echo -e "${YELLOW}Start it first with: ./scripts/01_docker_start.sh${NC}"
+    echo -e "${YELLOW}Start it first with: ./admin_scripts/01_docker_start.sh${NC}"
     exit 1
 fi
 

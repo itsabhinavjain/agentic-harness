@@ -26,7 +26,7 @@
 │
 ├── admin_scripts/
 │   ├── 01_docker_start.sh         # Build & start container, poll health
-│   ├── 02_docker_shell.sh         # Attach interactive shell as agent user
+│   ├── 03_docker_shell.sh         # Attach interactive shell as agent user
 │   ├── 04_docker_stop.sh          # Stop container
 │   └── 05_docker_reset.sh         # Full reset (with confirmation)
 │
@@ -106,6 +106,10 @@ Runs as agent user. Everything it creates is owned by the agent user automatical
 2. Install Claude Code (idempotent)
 3. Set up .bashrc (PATH, workspace .env sourcing, tool versions on login)
 
+#### Layer 4: ./admin_scripts/02_docker_configure.sh — Agent, Tool and Skill Configurations
+Runs as agent user. Everything it creates is owned by the agent user automatically.
+
+
 ### Volume Mounts (host → container)
 
 | Host path | Container path | Mode | Purpose |
@@ -128,7 +132,7 @@ This flows through:
 - **docker-compose.yaml** — build arg, runtime env, volume mount paths
 - **entrypoint-root.sh** — UID/GID remapping and ownership fixes
 - **entrypoint-dev.sh** — uses `$HOME` (set by Dockerfile `ENV HOME`)
-- **admin_scripts/02_docker_shell.sh** — `docker exec -u $AGENT_USER`
+- **admin_scripts/03_docker_shell.sh** — `docker exec -u $AGENT_USER`
 
 ### Permission Model
 
@@ -156,11 +160,11 @@ This flows through:
 # Start (builds image, polls health, installs tools)
 ./admin_scripts/01_docker_start.sh
 
-# Enter container as agent user
-./admin_scripts/02_docker_shell.sh
-
 # Enter container as agent user and do initial configurations
-./admin_scripts/03_docker_configure.sh
+./admin_scripts/02_docker_configure.sh
+
+# Enter container as agent user
+./admin_scripts/03_docker_shell.sh
 
 # Stop container
 ./admin_scripts/04_docker_stop.sh

@@ -1,9 +1,4 @@
 #!/bin/bash
-
-# =============================================================================
-# Attach to running agent container
-# =============================================================================
-
 set -e
 
 # Always run from harness root regardless of where the script is invoked from
@@ -13,6 +8,10 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
+
+# =============================================================================
+# Attach to running agent container
+# =============================================================================
 
 CONTAINER_NAME="agent_machine"
 

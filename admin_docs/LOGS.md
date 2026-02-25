@@ -10,7 +10,9 @@ claude
 ```
 /setup
 ```
-**Status** : Haven't been able to run this yet because of docker within docker issues
+**Status** : 
+- Haven't been able to run this yet because of docker within docker issues
+- Might have to run it directly on the host since it anyways uses docker for containerisation
 
 ## NanoBot 
 Binary 
@@ -43,4 +45,7 @@ Running the gateway
 ```
 nonabot gateway
 ```
-**Status** : Was not able to run the gateway, probably because of docker etc  
+
+**Status** : 
+- Was not able to run the gateway, probably because of docker etc  
+- Might have to run it directly on the host since it anyways uses docker for containerisation

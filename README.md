@@ -9,8 +9,8 @@
   	- State of the installed tools - Authentication, Data etc 
 - Additional functionalities 
   - Observability for self improvement loops 
-  - Exposing the harness over apis  
-  - Exposing the harness over basic connectors like telegram etc 
+  - Exposing the harness over apis, command line, basic connectors like telegram etc  
+  - Exposing the UI layers to the host (e.g. tool interfaces, html artefacts etc)
 
 ### Repository Structure
 ```
@@ -63,7 +63,6 @@
 
 
 ### What's in git vs what's not
-
 - In git  
   - `workspace/` — your working directory
   - `services/` — Dockerfiles, entrypoints 

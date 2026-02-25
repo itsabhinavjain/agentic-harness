@@ -8,10 +8,9 @@
     - [ ] Setup using a reverse proxy (using tunnel)
   - [ ] over an MCP server or a command line etc 
   - [ ] over common connectors like telegram 
+  - [ ] Exposing the UI 
 - [ ] Deployement 
 
-List of agents supported 
-List of tools 
-List of skills and plugins 
+- [ ] Add new agents, skills, tools etc from the lists 
 
 ## Done

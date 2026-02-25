@@ -34,21 +34,26 @@ if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
     exit 1
 fi
 
+# echo ""
 # echo -e "${GREEN}Claude Code${NC}"
 # echo -e "${GREEN} - Authenticate${NC}"
-# echo -e "${GREEN} - Add Marketplaces and Plugins${NC}"
+# echo -e "${GREEN} - Add Marketplaces and Plugins (Project Level) ${NC}"
+# echo -e "${GREEN} - Add Marketplaces and Plugins (User Level) ${NC}"
 # docker exec -it -u "$AGENT_USER" "$CONTAINER_NAME" /bin/bash -ic "claude"
 # docker exec -it -u "$AGENT_USER" "$CONTAINER_NAME" /bin/bash -ic "claude plugin marketplace add anthropics/knowledge-work-plugins"
 # docker exec -it -u "$AGENT_USER" "$CONTAINER_NAME" /bin/bash -ic "claude plugin install sales@knowledge-work-plugins"
 
+# echo ""
 # echo -e "${GREEN}Gemini${NC}"
 # echo -e "${GREEN} - Authenticate${NC}"
-# echo -e "${GREEN} - Add Extensions${NC}"
+# echo -e "${GREEN} - Add Extensions (Project Level) ${NC}"
+# echo -e "${GREEN} - Add Extensions (User Level) ${NC}"
 # docker exec -it -u "$AGENT_USER" "$CONTAINER_NAME" /bin/bash -ic "gemini"
 
-# echo -e "${GREEN}Add skills for the workspace${NC}"
+# echo ""
+# echo -e "${GREEN}Add skills${NC}"
+# echo -e "${GREEN} - (Project Level) ${NC}"
+# echo -e "${GREEN} - (User Level) ${NC}"
 # docker exec -it -u "$AGENT_USER" "$CONTAINER_NAME" /bin/bash -ic "CI=true npx skills add https://github.com/anthropics/skills --skill frontend-design --yes"
-
-# echo -e "${GREEN}Add skills for the user${NC}"
 
 echo -e "${GREEN}Configuration complete!${NC}"

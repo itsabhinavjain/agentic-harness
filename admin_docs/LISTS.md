@@ -5,7 +5,8 @@
 ## Agents 
 - [x] Claude code 
 - [x] Gemini
-- [ ] NanoClaw (Typescript) 
+- [x] DeepAgent
+- [ ] NanoClaw (Typescript) - Issue with Docker and Docker and Sockets
 - [ ] NanoBot (Python)
 - [ ] PicoClaw (Go)
 - [ ] IronClaw (Rust)

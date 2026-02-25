@@ -13,4 +13,8 @@
 
 - [ ] Add new agents, skills, tools etc from the lists 
 
+- Other features to check 
+  - Running using a non-root user access 
+  - Deployement using something like tailscale, tunnel or server
+
 ## Done

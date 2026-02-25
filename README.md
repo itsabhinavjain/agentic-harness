@@ -6,7 +6,11 @@
 	- Workspace (Project files)
  	- Installed tool binaries
   	- Configuration of the installed tools
-  	- Authentication of the installed tools
+  	- State of the installed tools - Authentication, Data etc 
+- Additional functionalities 
+  - Observability for self improvement loops 
+  - Exposing the harness over apis  
+  - Exposing the harness over basic connectors like telegram etc 
 
 ### Repository Structure
 ```
@@ -20,7 +24,7 @@
 │       ├── entrypoint-root.sh     # Root: UID/GID remap, permissions (run-time)
 │       └── entrypoint-dev.sh      # Agent user: Python, Claude Code, .bashrc (run-time)
 │
-├── scripts/
+├── admin_scripts/
 │   ├── 01_docker_start.sh         # Build & start container, poll health
 │   ├── 02_docker_shell.sh         # Attach interactive shell as agent user
 │   ├── 03_docker_stop.sh          # Stop container
@@ -50,14 +54,26 @@
 └── README.md
 ```
 
+### Requirements 
+- Workspace 
+- Basic environment 
+- Agents 
+- Tools 
+- Skills 
+
+
 ### What's in git vs what's not
 
-| In git | Git-ignored |
-|--------|-------------|
-| `workspace/` — your working directory | `volumes/` — container home dir, caches, tool configs |
-| `services/` — Dockerfiles, entrypoints | `.env` — environment variables |
-| `scripts/` — lifecycle scripts | `.secrets/` — API keys and credentials |
-| `admin_tools/`, `admin_docs/` | |
+- In git  
+  - `workspace/` — your working directory
+  - `services/` — Dockerfiles, entrypoints 
+  - `admin_scripts/` — lifecycle scripts 
+  - `admin_tools/`
+  - `admin_docs/`
+- Not in git 
+  - `volumes/` — container home dir, caches, tool configs
+  - `.env` — environment variables
+  - `.secrets/` — API keys and credentials
 
 ### Architecture: Three-Layer Separation of Concerns
 
@@ -112,7 +128,7 @@ This flows through:
 - **docker-compose.yaml** — build arg, runtime env, volume mount paths
 - **entrypoint-root.sh** — UID/GID remapping and ownership fixes
 - **entrypoint-dev.sh** — uses `$HOME` (set by Dockerfile `ENV HOME`)
-- **scripts/02_docker_shell.sh** — `docker exec -u $AGENT_USER`
+- **admin_scripts/02_docker_shell.sh** — `docker exec -u $AGENT_USER`
 
 ### Permission Model
 
@@ -138,10 +154,10 @@ This flows through:
 ### General usage
 ```bash
 # Start (builds image, polls health, installs tools)
-./scripts/01_docker_start.sh
+./admin_scripts/01_docker_start.sh
 
 # Enter container as agent user
-./scripts/02_docker_shell.sh
+./admin_scripts/02_docker_shell.sh
 
 # Note : in the first run make sure that you are configuring the various tools
 # - Tools
@@ -151,8 +167,8 @@ This flows through:
 # - We are using API keys for others
 
 # Stop container
-./scripts/03_docker_stop.sh
+./admin_scripts/03_docker_stop.sh
 
 # Full reset (prompts for confirmation)
-./scripts/04_docker_reset.sh
+./admin_scripts/04_docker_reset.sh
 ```

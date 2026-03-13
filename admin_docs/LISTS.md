@@ -2,17 +2,27 @@
 - [x] Node 
 - [x] UV and Python
 
-## Agents 
+## DeepAgents CLI Agents 
 - [x] Claude code 
 - [x] Gemini
 - [x] DeepAgent
-- [ ] NanoClaw (Typescript) - Issue with Docker and Docker and Sockets
+- [ ] NanoClaw (Typescript) 
 - [ ] NanoBot (Python)
 - [ ] PicoClaw (Go)
 - [ ] IronClaw (Rust)
 - [ ] ZeroClaw (Rust)
 - [ ] TrustClaw (Check not too sure about this) 
 
-## Tools 
+## DeepAgent SDK Support 
+- [ ] DeepAgent SDK (Langchain)
+- [ ] Claude Agent Development Kit
 
-## Skills 
+
+## Tools System Tools 
+- [ ] Git
+
+## Tools (CLI) 
+## Tools (MCP Servers) 
+## Common Skills 
+## Claude Plugins 
+## Gemini Extensions 

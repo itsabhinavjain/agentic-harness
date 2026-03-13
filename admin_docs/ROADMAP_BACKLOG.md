@@ -2,19 +2,20 @@
 - [ ] Check if we should use devcontainers. 
   - [ ] Get inspiration from the harness by claude and cloudflare etc. It looks some additional network hardening aspects (firewall etc)
 - [ ] Self improving agents (Looking at the audit logs and suggeseting what can be improved)
-- [ ] Exposing the harness 
-  - [ ] over an API (File Management etc)
-  - [ ] over an https (Should be able access remotely). 
+- [ ] Exposing the harness using a defined SDK 
+  - [ ] over an API (Deepagent + File Management etc)
+  - [ ] over an https (Should be able access CLI remotely). 
     - [ ] Setup using a reverse proxy (using tunnel)
   - [ ] over an MCP server or a command line etc 
   - [ ] over common connectors like telegram 
   - [ ] Exposing the UI 
-- [ ] Deployement 
+- [ ] Mini packets and settings for hooks and observability etc. 
+- [ ] Deployement rules 
 
 - [ ] Add new agents, skills, tools etc from the lists 
 
 - Other features to check 
   - Running using a non-root user access 
-  - Deployement using something like tailscale, tunnel or server
+  - Deployment using something like tailscale, tunnel or server
 
 ## Done

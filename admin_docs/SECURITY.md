@@ -1,4 +1,4 @@
-Need to implement in different layers 
+## Need to implement security in different layers 
 
 - Network 
 - Host Machine 
@@ -14,3 +14,8 @@ Need to implement in different layers
   - Access to websockets? 
 - Application 
   - Permissions to various agents
+
+
+
+## Notes 
+- Be very careful while providing access to sockets. 

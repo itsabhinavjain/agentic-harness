@@ -1,3 +1,23 @@
+## Design decisions 
+- What tools are required 
+  - How should these be installed ? Admin user vs system user 
+- What Docker volumes and ports will be needed for the tools (e.g. webhooks and UI etc)
+- Agent specific configurations 
+  - Permissions 
+  - MCP servers 
+  - Plugins and Extensions etc 
+- What all skills are to be installed 
+  - User level or project level etc 
+- What tools are implemented 
+  - CLI tools (System or installed)
+  - Custom CLI tools 
+- Cronjobs
+- Pipelines (and state management)
+- Environment variables 
+- Secret management 
+- Observability
+- Logging 
+
 ## Design of a workspace 
 
 ### Domain 
@@ -8,17 +28,6 @@
 - Skills
 
 ### Tech 
-- What tools are implemented 
-  - CLI tools (System or installed)
-  - Custom CLI tools 
-- Cronjobs
-- Pipelines (and state management)
-- Tool Permissions - Overall 
-- Tool Permissions - For the user (Multi-tenancy etc)
-- Environment variables 
-- Secret management 
-- Observability
-- Logging 
 
 
 ## Notes 

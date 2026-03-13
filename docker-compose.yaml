@@ -1,5 +1,5 @@
 services:
-  agent:
+  agent_machine:
     build:
       context: ./services/agent_machine
       dockerfile: Dockerfile
@@ -29,7 +29,10 @@ services:
       - ./volumes/agent_machine/home:/home/${AGENT_USER:-dev}
 
       # Workspace — your working directory (checked into git)
-      - ./workspace:/home/${AGENT_USER:-dev}/workspace
+      - ./agent_machine__workspace:/home/${AGENT_USER:-dev}/workspace
+
+      # Workspace — your working directory (checked into git)
+      - ./agent_machine__administration:/home/${AGENT_USER:-dev}/administration
 
       # Secrets remain separate (read-only)
       - ./.secrets:/home/${AGENT_USER:-dev}/.secrets:ro

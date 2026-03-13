@@ -30,9 +30,12 @@
 │   ├── 04_docker_stop.sh          # Stop container
 │   └── 05_docker_reset.sh         # Full reset (with confirmation)
 │
-├── workspace/                     # Working directory inside container (checked into git)
+├── agent_machine__workspace/      # Working directory inside container (checked into git)
 │   ├── README.md
 │   └── sample.env
+│
+├── agent_machine__administration/ # Working directory inside container for administration (checked into git)
+│   └── README.md
 │
 ├── volumes/                       # Runtime data (git-ignored)
 │   └── agent_machine/
@@ -54,17 +57,10 @@
 └── README.md
 ```
 
-### Requirements 
-- Workspace 
-- Basic environment 
-- Agents 
-- Tools 
-- Skills 
-
-
 ### What's in git vs what's not
 - In git  
-  - `workspace/` — your working directory
+  - `agent_machine__workspace/` — your working directory
+  - `agent_machine__administration/` — will include things like analysis and admin related workflows etc
   - `services/` — Dockerfiles, entrypoints 
   - `admin_scripts/` — lifecycle scripts 
   - `admin_tools/`
@@ -171,3 +167,12 @@ This flows through:
 # Full reset (prompts for confirmation)
 ./admin_scripts/05_docker_reset.sh
 ```
+
+### Extend 
+- Add new system tools within the container (Admin)
+- Add new system tools within the container (User)
+- Configuring and initializing new tools 
+  - `./admin_scripts/02_docker_configure.sh`
+- Add new skills , plugins, extensions (User) - Can be at user level or at the project level 
+  - `./admin_scripts/02_docker_configure.sh`
+- Open additional port of the container 

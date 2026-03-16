@@ -1,17 +1,17 @@
 ## Basic packages 
-- [x] Node 
-- [x] UV and Python
+- [x] Node (Supported and default installed)
+- [x] UV and Python (Supported and default installed)
 
 ## DeepAgents CLI Agents 
-- [x] Claude code 
-- [x] Gemini
-- [x] DeepAgent
-- [ ] NanoClaw (Typescript) 
-- [ ] NanoBot (Python)
-- [ ] PicoClaw (Go)
-- [ ] IronClaw (Rust)
-- [ ] ZeroClaw (Rust)
-- [ ] TrustClaw (Check not too sure about this) 
+- [x] Claude code (Supported and default installed)
+- [x] Gemini (Supported and default installed)
+- [x] DeepAgent (Supported) 
+- [ ] NanoClaw 
+- [ ] NanoBot 
+- [ ] PicoClaw 
+- [ ] IronClaw 
+- [ ] ZeroClaw 
+- [ ] TrustClaw 
 
 ## DeepAgent SDK Support 
 - [ ] DeepAgent SDK (Langchain)
